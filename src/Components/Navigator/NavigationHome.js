@@ -4,24 +4,34 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
 import Bookings from './Bookings';
+import SplashScreen from '../SplashScreen';
 
 const Tab = createBottomTabNavigator();
 
-const NavigationHome = () => {
+const NavigationHome = ({navigation}) => {
+  console.log('Drawer se aya nav', navigation);
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: 'black',
+        },
       }}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
+          tabBarActiveTintColor: 'red',
           tabBarIcon: ({focused}) => {
             return (
               <Image
                 style={styles.HomenavIcon}
-                source={require('../../assests/Images/home.png')}
+                source={
+                  focused
+                    ? require('../../assests/Images/home-button.png')
+                    : require('../../assests/Images/home.png')
+                }
               />
             );
           },
@@ -35,7 +45,11 @@ const NavigationHome = () => {
             return (
               <Image
                 style={styles.HomenavIcon}
-                source={require('../../assests/Images/home.png')}
+                source={
+                  focused
+                    ? require('../../assests/Images/briefcase.png')
+                    : require('../../assests/Images/suitcase.png')
+                }
               />
             );
           },

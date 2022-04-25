@@ -5,11 +5,15 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  SafeAreaView,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import HeaderOne from '../HeaderOne';
 import images from '../../consts/cityImages';
 import HotelCard from '../hotelCard.js';
+import OfferCard from '../OfferCard.js';
+import RestScreen from '../RestScreen.js';
 
 const renderItem = ({item}) => {
   return (
@@ -24,16 +28,9 @@ const renderItem = ({item}) => {
 
 const HomeScreen = () => {
   return (
-    <View>
-      <View>
-        <HeaderOne />
-      </View>
-      <View
-        style={{
-          backgroundColor: '#393939',
-          borderBottomWidth: 0.2,
-          borderBottomColor: 'white',
-        }}>
+    <SafeAreaView style={{flex: 1}}>
+      <HeaderOne />
+      <ScrollView bounces={false}>
         <FlatList
           data={images}
           horizontal={true}
@@ -43,10 +40,18 @@ const HomeScreen = () => {
           }}
           bounces={false}
           showsHorizontalScrollIndicator={false}
+          style={{
+            backgroundColor: '#393939',
+            borderBottomWidth: 0.2,
+            borderBottomColor: 'white',
+            flex: 1,
+          }}
         />
-      </View>
-      <HotelCard />
-    </View>
+        <HotelCard />
+        <OfferCard />
+        <RestScreen />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

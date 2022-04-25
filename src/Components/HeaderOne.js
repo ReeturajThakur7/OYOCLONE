@@ -15,13 +15,15 @@ const {height, width} = Dimensions.get('screen');
 
 const HeaderOne = () => {
   const navigation = useNavigation();
+  console.log('Header pr', navigation);
   return (
     <View style={styles.container}>
       <View style={styles.HeaderOneView}>
         <TouchableOpacity
           style={styles.Hamburger}
           onPress={() => {
-            navigation.navigate('Bookings');
+            console.log('Press hua');
+            navigation.openDrawer();
           }}>
           <Image
             style={styles.Hamburger}
@@ -47,7 +49,7 @@ const HeaderOne = () => {
         <TextInput
           placeholder={`Try "Couple friendly hotels in INDIA"`}
           placeholderTextColor="#D4D4D4"
-          color="red"
+          color="white"
           style={styles.TextInputsearch}></TextInput>
       </View>
     </View>
@@ -70,7 +72,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'black',
   },
-  container: {height: height / 7, backgroundColor: '#fb1402'},
+  container: {
+    height: height / 7,
+    backgroundColor: '#fb1402',
+  },
   OYOTEXT: {color: 'white', fontWeight: 'bold', fontSize: 30},
   Hamburger: {
     height: height / 40,
@@ -88,6 +93,5 @@ const styles = StyleSheet.create({
     padding: 4,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // backgroundColor: 'black',
   },
 });

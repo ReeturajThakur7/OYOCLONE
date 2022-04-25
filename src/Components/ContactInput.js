@@ -70,10 +70,12 @@ const ContactInput = ({navigation}) => {
         ) : null}
       </View>
       <View style={styles.SignUpSkipView}>
+        <Text style={{color: 'white', alignSelf: 'center', margin: 4}}>OR</Text>
+
         <Text
           style={styles.Textsignup}
           onPress={() => {
-            navigation.navigate('NavigationHome');
+            navigation.navigate('Drawer');
           }}>
           I'll signup later
         </Text>
@@ -86,7 +88,7 @@ export default ContactInput;
 const styles = StyleSheet.create({
   Textsignup: {color: 'white', fontWeight: 'bold'},
   TextValidation: {color: 'red', marginLeft: 10},
-  Image: {height: '99%', borderRadius: 10, right: '10%'},
+  Image: {height: '97%', top: 2, right: 7, borderRadius: 10},
   ContactView: {
     flexDirection: 'row',
     backgroundColor: 'white',

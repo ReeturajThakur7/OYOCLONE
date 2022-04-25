@@ -1,67 +1,30 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  FlatList,
-  Dimensions,
-  ImageBackground,
-} from 'react-native';
+import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
 import React from 'react';
 import hotels from '../consts/hotels';
 
+import HotelListRender from './hotelCardRender/hotelListRender';
+
 const {height, width} = Dimensions.get('screen');
 
-const onRender = ({item}) => {
-  return (
-    <View style={{padding: 7}}>
-      <View style={styles.cardView}>
-        <Image
-          resizeMode="stretch"
-          style={styles.HotelImages}
-          source={item.image}
-        />
-        <Image
-          style={styles.likeImg}
-          source={require('../assests/Images/heart.png')}
-        />
-        <View
-          style={{
-            backgroundColor: 'green',
-            width: 40,
-            bottom: 40,
-            left: 20,
-            flexDirection: 'row',
-          }}>
-          <Text style={{color: 'white'}}>{item.rating}</Text>
-          <Image
-            style={styles.starImg}
-            source={require('../assests/Images/star.png')}
-          />
-        </View>
-        <Text
-          style={{color: 'white', fontSize: 18, marginBottom: 6, bottom: 30}}>
-          {item.name}
-        </Text>
-        <Text style={{color: 'white', marginBottom: 6, bottom: 30}}>
-          {item.location}
-        </Text>
-        <Text style={{color: 'white', bottom: 30}}>₹{item.price}</Text>
-      </View>
-    </View>
-  );
-};
 const hotelCard = () => {
+  const onRender = ({item}) => {
+    return (
+      <View style={styles.contentContainer}>
+        <HotelListRender item={item} />
+      </View>
+    );
+  };
+
   return (
-    <View style={{height: 300, backgroundColor: '#393939', padding: 15}}>
-      <Text style={{color: 'white', fontSize: 20}}>
-        Recommended OYOs for you
-      </Text>
+    <View style={styles.FlatView}>
+      <Text style={styles.recTagText}>Recommended OYOs for you</Text>
+
       <FlatList
         data={hotels}
         renderItem={onRender}
         horizontal={true}
         bounces={false}
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );
@@ -69,7 +32,34 @@ const hotelCard = () => {
 
 export default hotelCard;
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
+  recTagText: {
+    color: 'white',
+    fontSize: 20,
+    paddingHorizontal: 7,
+  },
+  FlatView: {
+    backgroundColor: '#393939',
+  },
+  textPrice: {color: 'white', width: width / 1.9},
+  textLocation: {
+    color: 'white',
+    width: width / 1.9,
+  },
+  textNameHotel: {
+    color: 'white',
+    fontSize: 18,
+    width: width / 1.9,
+    marginTop: 12,
+  },
+  ViewForRating: {
+    backgroundColor: 'green',
+    width: 40,
+    bottom: 40,
+    left: 20,
+    flexDirection: 'row',
+  },
+  contentContainer: {padding: 7},
   starImg: {
     width: 15,
     height: 15,

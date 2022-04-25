@@ -17,15 +17,13 @@ const SlideBox = ({navigation}) => {
           dotColor="red"
           inactiveDotColor="#90A4AE"
           dotStyle={{
-            width: 50,
+            width: 100,
             height: 4,
           }}
           autoplay={true}
           circleLoop
           ImageComponentStyle={{
-            borderRadius: 30,
-
-            resizeMode: 'cover',
+            resizeMode: 'stretch',
             backgroundColor: 'red',
             height: '100%',
           }}
@@ -40,6 +38,7 @@ const SlideBox = ({navigation}) => {
           activeOpacity={0.9}
         />
       </View>
+
       <ContactInput navigation={navigation} />
     </>
   );
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
   View: {
     flex: 1,
     backgroundColor: 'black',
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
 });
