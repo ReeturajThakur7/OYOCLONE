@@ -1,19 +1,25 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
-import heart from '../../assests/Images/heart.png';
-import fillHeart from '../../assests/Images/like.png';
-import {styles} from '../hotelCard';
+import heart from '../assests/Images/heart.png';
+import fillHeart from '../assests/Images/like.png';
+import {styles} from '../HOME/hotelCard';
+import {useNavigation} from '@react-navigation/native';
 
 const hotelListRender = ({item}) => {
   const [color, setColor] = useState(false);
   const img = !color ? heart : fillHeart;
+  const navigation = useNavigation();
 
   const changeImg = () => {
     setColor(!color);
   };
   return (
     <View>
-      <TouchableOpacity activeOpacity={0.8}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={() => {
+          navigation.navigate('HotelData', {...item});
+        }}>
         <View style={styles.cardView}>
           <Image
             resizeMode="stretch"
@@ -27,7 +33,7 @@ const hotelListRender = ({item}) => {
             <Text style={{color: 'white'}}>{item.rating}</Text>
             <Image
               style={styles.starImg}
-              source={require('../../assests/Images/star.png')}
+              source={require('../assests/Images/star.png')}
             />
           </View>
         </View>

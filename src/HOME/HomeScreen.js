@@ -7,13 +7,17 @@ import {
   FlatList,
   SafeAreaView,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import React from 'react';
-import HeaderOne from '../HeaderOne';
-import images from '../../consts/cityImages';
-import HotelCard from '../hotelCard.js';
-import OfferCard from '../OfferCard.js';
-import RestScreen from '../RestScreen.js';
+import HeaderOne from '../Components/HeaderOne';
+import images from '../consts/cityImages';
+import HotelCard from '../HOME/hotelCard';
+import OfferCard from '../HOME/OfferCard.js';
+import RestScreen from '../HOME/RestScreen.js';
+
+const height = Dimensions.get('screen');
+console.log(height);
 
 const renderItem = ({item}) => {
   return (
@@ -28,7 +32,7 @@ const renderItem = ({item}) => {
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'red'}}>
       <HeaderOne />
       <ScrollView bounces={false}>
         <FlatList

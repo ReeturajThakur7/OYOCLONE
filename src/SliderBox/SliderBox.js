@@ -1,18 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {SliderBox} from 'react-native-image-slider-box';
-import ContactInput from './ContactInput';
+import ContactInput from '../Components/ContactInput';
+import sliderimg from './imgslider.js';
 
 const SlideBox = ({navigation}) => {
   return (
     <>
       <View style={styles.View}>
         <SliderBox
-          images={[
-            '/Users/admin/Desktop/OyoClone/src/assests/Images/RoomBed.jpeg',
-            '/Users/admin/Desktop/OyoClone/src/assests/Images/HotelRoom.jpeg',
-            '/Users/admin/Desktop/OyoClone/src/assests/Images/HotelOuterView.jpeg',
-          ]}
+          images={sliderimg.img}
           sliderBoxHeight={200}
           dotColor="red"
           inactiveDotColor="#90A4AE"
@@ -24,15 +21,7 @@ const SlideBox = ({navigation}) => {
           circleLoop
           ImageComponentStyle={{
             resizeMode: 'stretch',
-            backgroundColor: 'red',
             height: '100%',
-          }}
-          paginationBoxStyle={{
-            position: 'absolute',
-            alignItems: 'center',
-            alignSelf: 'center',
-            justifyContent: 'center',
-            marginTop: 20,
           }}
           imageLoadingColor="#2196F3"
           activeOpacity={0.9}

@@ -2,14 +2,12 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from './HomeScreen';
+import HomeScreen from '../HOME/HomeScreen';
 import Bookings from './Bookings';
-import SplashScreen from '../SplashScreen';
 
 const Tab = createBottomTabNavigator();
 
 const NavigationHome = ({navigation}) => {
-  console.log('Drawer se aya nav', navigation);
   return (
     <Tab.Navigator
       screenOptions={{
@@ -29,8 +27,8 @@ const NavigationHome = ({navigation}) => {
                 style={styles.HomenavIcon}
                 source={
                   focused
-                    ? require('../../assests/Images/home-button.png')
-                    : require('../../assests/Images/home.png')
+                    ? require('../assests/Images/home-button.png')
+                    : require('../assests/Images/home.png')
                 }
               />
             );
@@ -47,8 +45,8 @@ const NavigationHome = ({navigation}) => {
                 style={styles.HomenavIcon}
                 source={
                   focused
-                    ? require('../../assests/Images/briefcase.png')
-                    : require('../../assests/Images/suitcase.png')
+                    ? require('../assests/Images/briefcase.png')
+                    : require('../assests/Images/suitcase.png')
                 }
               />
             );

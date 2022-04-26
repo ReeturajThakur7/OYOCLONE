@@ -4,7 +4,7 @@ import React from 'react';
 const SplashScreen = ({navigation}) => {
   setTimeout(() => {
     navigation.navigate('SliderBox');
-  }, 3000);
+  }, 1000);
   return (
     <View>
       <Text>SplashScreen</Text>

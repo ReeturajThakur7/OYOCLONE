@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
 import React from 'react';
 import hotels from '../consts/hotels';
 
-import HotelListRender from './hotelCardRender/hotelListRender';
+import HotelListRender from './hotelListRender';
 
 const {height, width} = Dimensions.get('screen');
 

@@ -6,10 +6,10 @@ import {
   Dimensions,
   TouchableOpacity,
   TextInput,
+  StatusBar,
 } from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {NavigationContainer} from '@react-navigation/native';
 
 const {height, width} = Dimensions.get('screen');
 
@@ -19,11 +19,12 @@ const HeaderOne = () => {
   return (
     <View style={styles.container}>
       <View style={styles.HeaderOneView}>
+        <StatusBar backgroundColor={'red'} />
         <TouchableOpacity
           style={styles.Hamburger}
           onPress={() => {
-            console.log('Press hua');
             navigation.openDrawer();
+            // navigation.closeDrawer();
           }}>
           <Image
             style={styles.Hamburger}
@@ -60,38 +61,39 @@ export default HeaderOne;
 
 const styles = StyleSheet.create({
   TextInputsearch: {
-    height: height / 30,
-    left: 5,
-    width: width / 1.2,
+    fontSize: 14,
+    paddingLeft: 10,
+    paddingVertical: 14,
   },
-  searchIcon: {height: 15, width: 15, top: 7},
+  searchIcon: {height: 15, width: 15},
   TextinputView: {
-    borderWidth: 1,
-    margin: 10,
-    padding: 10,
+    borderRadius: 5,
+    width: width / 1.03,
     flexDirection: 'row',
     backgroundColor: 'black',
+    alignItems: 'center',
+    alignSelf: 'center',
+    paddingLeft: 10,
   },
   container: {
-    height: height / 7,
+    padding: 6,
     backgroundColor: '#fb1402',
   },
-  OYOTEXT: {color: 'white', fontWeight: 'bold', fontSize: 30},
+  OYOTEXT: {color: 'white', fontWeight: 'bold', fontSize: 30, bottom: 8},
   Hamburger: {
     height: height / 40,
     width: width / 20,
-    margin: 5,
+    left: 5,
   },
   notificationIcon: {
     height: height / 30,
     width: width / 15,
-    margin: 3,
+    right: 5,
   },
   HeaderOneView: {
     width: width,
-    height: height / 20,
-    padding: 4,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingRight: 10,
   },
 });
