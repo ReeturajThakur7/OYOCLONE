@@ -44,12 +44,7 @@ const HomeScreen = () => {
           }}
           bounces={false}
           showsHorizontalScrollIndicator={false}
-          style={{
-            backgroundColor: '#393939',
-            borderBottomWidth: 0.2,
-            borderBottomColor: 'white',
-            flex: 1,
-          }}
+          style={styles.FlatList}
         />
         <HotelCard />
         <OfferCard />
@@ -62,6 +57,12 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  FlatList: {
+    backgroundColor: '#393939',
+    borderBottomWidth: 0.2,
+    borderBottomColor: 'white',
+    flex: 1,
+  },
   stateText: {color: 'white'},
   container: {justifyContent: 'center', alignItems: 'center', margin: 10},
   img: {

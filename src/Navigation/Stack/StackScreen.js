@@ -5,6 +5,7 @@ import SplashScreen from '../../Splash/SplashScreen';
 import SliderBox from '../../SliderBox/SliderBox';
 import HotelData from '../../HOME/HotelData';
 import DrawerNav from '../DrawerNav/DrawerNav';
+import Notifications from '../../HOME/Notifications';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ const StackScreen = () => {
       <Stack.Screen name="SliderBox" component={SliderBox} />
       <Stack.Screen name="Drawer" component={DrawerNav} />
       <Stack.Screen name="HotelData" component={HotelData} />
+      <Stack.Screen name="notifications" component={Notifications} />
     </Stack.Navigator>
   );
 };

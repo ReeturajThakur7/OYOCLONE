@@ -15,11 +15,12 @@ const {height, width} = Dimensions.get('screen');
 
 const HeaderOne = () => {
   const navigation = useNavigation();
-  console.log('Header pr', navigation);
+  console.log('Navigation', navigation);
+
   return (
     <View style={styles.container}>
       <View style={styles.HeaderOneView}>
-        <StatusBar backgroundColor={'red'} />
+        <StatusBar backgroundColor={'#fb1402'} />
         <TouchableOpacity
           style={styles.Hamburger}
           onPress={() => {
@@ -33,7 +34,11 @@ const HeaderOne = () => {
         </TouchableOpacity>
 
         <Text style={styles.OYOTEXT}>𝐎𝐘𝐎</Text>
-        <TouchableOpacity style={styles.notificationIcon}>
+        <TouchableOpacity
+          style={styles.notificationIcon}
+          onPress={() => {
+            navigation.navigate('notifications');
+          }}>
           <Image
             style={styles.notificationIcon}
             source={require('../assests/Images/notification-bell.png')}

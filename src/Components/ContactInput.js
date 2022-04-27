@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from 'react-native';
 import React, {useState, useRef} from 'react';
 import PhoneInput from 'react-native-phone-number-input';
 
@@ -34,7 +41,12 @@ const ContactInput = ({navigation}) => {
 
   return (
     <View style={styles.BlackView}>
-      <View style={styles.ContactView}>
+      <View
+        style={{
+          flexDirection: 'row',
+          backgroundColor: 'white',
+          borderRadius: 10,
+        }}>
         <PhoneInput
           value={number}
           defaultCode="IN"
@@ -48,21 +60,28 @@ const ContactInput = ({navigation}) => {
             numberValidator(value);
           }}
           countryPickerProps={{withAlphaFilter: true}}
-          withDarkTheme
-          containerStyle={{borderRadius: 10}}
+          containerStyle={{
+            borderRadius: 10,
+            backgroundColor: 'white',
+          }}
+          textContainerStyle={{backgroundColor: 'white', padding: 10}}
+          textInputStyle={{
+            color: 'red',
+            paddingVertical: 10,
+          }}
         />
-        <View>
-          <TouchableOpacity
-            disabled={isDisabled}
-            onPress={() => {
-              navigation.navigate('NavigationHome');
-            }}>
-            <Image
-              style={styles.Image}
-              source={require('../assests/Images/right-arrow.png')}
-            />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.Image}
+          disabled={isDisabled}
+          onPress={() => {
+            navigation.navigate('Drawer');
+          }}>
+          <Image
+            resizeMode="contain"
+            style={{height: '100%', width: '100%'}}
+            source={require('../assests/Images/right-arrow.png')}
+          />
+        </TouchableOpacity>
       </View>
       <View style={{position: 'absolute'}}>
         {isNumberValid.trim() ? (
@@ -88,13 +107,19 @@ export default ContactInput;
 const styles = StyleSheet.create({
   Textsignup: {color: 'white', fontWeight: 'bold'},
   TextValidation: {color: 'red', marginLeft: 10},
-  Image: {height: '97%', top: 2, right: 7, borderRadius: 10},
+  Image: {
+    height: 75,
+    width: 70,
+    alignSelf: 'center',
+
+    overflow: 'hidden',
+    borderRadius: 10,
+  },
   ContactView: {
     flexDirection: 'row',
     backgroundColor: 'white',
     borderRadius: 10,
-    height: '30%',
-    width: '95%',
+    height: Platform.OS === 'ios' ? 60 : 80,
   },
   BlackView: {
     flex: 0.3,
@@ -102,5 +127,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  SignUpSkipView: {padding: 16, marginTop: 20},
+  SignUpSkipView: {padding: 13, marginTop: 20},
 });

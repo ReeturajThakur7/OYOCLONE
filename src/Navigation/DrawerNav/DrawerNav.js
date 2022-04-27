@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import NavigationHome from '../../BottomTab/NavigationHome';
+import NavigationHome from '../BottomTab/NavigationHome';
 import DrawerItems from './DrawerItems/index';
 
 const Drawer = createDrawerNavigator();

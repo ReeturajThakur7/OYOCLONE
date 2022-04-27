@@ -3,7 +3,6 @@ import {
   Text,
   View,
   Image,
-  ImageBackground,
   Dimensions,
   ScrollView,
   TouchableOpacity,
@@ -64,6 +63,9 @@ const HotelData = ({route, navigation}) => {
               </View>
             </View>
           </TouchableOpacity>
+        </View>
+        <View>
+          <Text style={styles.OYOTextOffers}>Date of travel & guests</Text>
         </View>
       </ScrollView>
 
@@ -135,8 +137,8 @@ const styles = StyleSheet.create({
   closeImageView: {alignItems: 'flex-end'},
   modalview: {
     padding: 14,
-    borderRadius: 10,
-    backgroundColor: '#393944',
+    borderRadius: 13,
+    backgroundColor: '#1e1f22',
     height: height / 4,
     marginTop: 'auto',
   },
@@ -190,7 +192,7 @@ const styles = StyleSheet.create({
 
   detailsMain: {flex: 0.5, padding: 10},
   HeadCompContainer: {top: 1},
-  ScrollView: {backgroundColor: '#393939'},
+  ScrollView: {backgroundColor: '#272727'},
   Images: {
     height: height / 2,
   },
