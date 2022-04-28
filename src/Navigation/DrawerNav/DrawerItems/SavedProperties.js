@@ -1,7 +1,9 @@
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 const SavedProperties = () => {
+  const navigation = useNavigation();
   return (
     <>
       <TouchableOpacity activeOpacity={0.8} style={styles.touchViewBadgeRupee}>
@@ -15,7 +17,12 @@ const SavedProperties = () => {
         <Text style={styles.textWallets}>Your Saved Properties</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity activeOpacity={0.8} style={styles.touchViewBadgeRupee}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('InviteEarn');
+        }}
+        activeOpacity={0.8}
+        style={styles.touchViewBadgeRupee}>
         <View style={styles.badgeView}>
           <Image
             style={styles.badgeImg}

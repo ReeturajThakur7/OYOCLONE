@@ -17,7 +17,6 @@ import OfferCard from '../HOME/OfferCard.js';
 import RestScreen from '../HOME/RestScreen.js';
 
 const height = Dimensions.get('screen');
-console.log(height);
 
 const renderItem = ({item}) => {
   return (

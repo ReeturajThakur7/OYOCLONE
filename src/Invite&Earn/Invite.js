@@ -6,14 +6,13 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
-  FlatList,
   ScrollView,
 } from 'react-native';
 import React from 'react';
 
 const {height, width} = Dimensions.get('screen');
 
-const Invite = () => {
+const Invite = ({navigation}) => {
   return (
     <SafeAreaView style={styles.SafeAreaView}>
       <View style={styles.Parentcontainer}>
@@ -42,15 +41,17 @@ const Invite = () => {
             source={require('../assests/Images/Invite&earn.png')}
           />
         </View>
-        <View
-          style={{
-            bottom: '3%',
-            alignSelf: 'center',
-            height: height / 6,
-            width: width / 1.2,
-            borderWidth: 2,
-            borderColor: 'white',
-          }}></View>
+        <View style={styles.invitecodeView}>
+          <Text style={{alignSelf: 'center', color: 'white'}}>
+            Your invite code
+          </Text>
+          <View style={styles.couponView}>
+            <Text style={styles.couponCode}>REETJ9MLVV</Text>
+            <View style={styles.copyTextView}>
+              <Text onPress={() => {}}>Copy</Text>
+            </View>
+          </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -59,6 +60,37 @@ const Invite = () => {
 export default Invite;
 
 const styles = StyleSheet.create({
+  couponView: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingHorizontal: 40,
+    paddingVertical: 10,
+  },
+  couponCode: {
+    alignSelf: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  copyTextView: {
+    backgroundColor: 'grey',
+    borderWidth: 2,
+    borderColor: '#bf8904',
+    borderStyle: 'dotted',
+    borderRadius: 1,
+    paddingHorizontal: 2,
+  },
+  invitecodeView: {
+    padding: 10,
+    bottom: '3%',
+    alignSelf: 'center',
+    height: height / 8,
+    width: width / 1.2,
+
+    borderRadius: 10,
+    borderColor: 'white',
+    backgroundColor: '#272727',
+  },
   imgInvite: {height: '100%', width: '100%'},
   imgView: {height: height / 2.6, width: width},
   HeaderOffer: {

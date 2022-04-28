@@ -7,15 +7,18 @@ import {
   TouchableOpacity,
   TextInput,
   StatusBar,
+  Keyboard,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import ModalScreen from '../Screens/ModalScreen';
 
 const {height, width} = Dimensions.get('screen');
 
 const HeaderOne = () => {
+  const [modal, setModal] = useState(false);
+
   const navigation = useNavigation();
-  console.log('Navigation', navigation);
 
   return (
     <View style={styles.container}>
@@ -52,11 +55,18 @@ const HeaderOne = () => {
             style={styles.searchIcon}
           />
         </TouchableOpacity>
+
         <TextInput
+          onFocus={() => {
+            setModal(!modal);
+            Keyboard.dismiss();
+          }}
           placeholder={`Try "Couple friendly hotels in INDIA"`}
           placeholderTextColor="#D4D4D4"
           color="white"
-          style={styles.TextInputsearch}></TextInput>
+          style={styles.TextInputsearch}
+        />
+        <ModalScreen modal={modal} setModal={setModal} />
       </View>
     </View>
   );

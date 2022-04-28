@@ -11,6 +11,7 @@ import {
 import React, {useState} from 'react';
 import HeaderComponent from '../Components/HeaderComponent';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import BookNowComponent from './BookNowComponent';
 
 const {height, width} = Dimensions.get('screen');
 
@@ -19,7 +20,7 @@ const HotelData = ({route, navigation}) => {
 
   const {id, name, location, price, rating, image, details} = route.params;
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.safearea}>
       <ScrollView
         stickyHeaderIndices={[0]}
         style={styles.ScrollView}
@@ -68,8 +69,12 @@ const HotelData = ({route, navigation}) => {
           <Text style={styles.OYOTextOffers}>Date of travel & guests</Text>
         </View>
       </ScrollView>
-
-      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+      <BookNowComponent price={price} />
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        style={{backgroundColor: 'red'}}>
         <View style={styles.modalview}>
           <TouchableOpacity
             onPress={() => {
@@ -111,6 +116,7 @@ const HotelData = ({route, navigation}) => {
 export default HotelData;
 
 const styles = StyleSheet.create({
+  safearea: {backgroundColor: '#272727'},
   applyText: {color: 'red', fontSize: 19},
   modalApplyView: {
     marginTop: 9,
@@ -192,7 +198,7 @@ const styles = StyleSheet.create({
 
   detailsMain: {flex: 0.5, padding: 10},
   HeadCompContainer: {top: 1},
-  ScrollView: {backgroundColor: '#272727'},
+  ScrollView: {backgroundColor: '#272727', height: '90%'},
   Images: {
     height: height / 2,
   },
