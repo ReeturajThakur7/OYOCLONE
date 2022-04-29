@@ -49,7 +49,7 @@ const ModalScreen = props => {
         <View
           style={{
             flex: 1,
-            marginTop: status,
+            // marginTop: status,
             backgroundColor: '#272727',
           }}>
           <View

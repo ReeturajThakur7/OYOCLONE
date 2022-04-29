@@ -65,11 +65,8 @@ const HotelData = ({route, navigation}) => {
             </View>
           </TouchableOpacity>
         </View>
-        <View>
-          <Text style={styles.OYOTextOffers}>Date of travel & guests</Text>
-        </View>
       </ScrollView>
-      <BookNowComponent price={price} />
+      <BookNowComponent data={route.params} />
       <Modal
         animationType="slide"
         transparent={true}

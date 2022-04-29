@@ -7,14 +7,21 @@ import {
   Dimensions,
 } from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 const {height, width} = Dimensions.get('screen');
 
 const Wallets = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.MainView}>
       <Text style={styles.textWalletMain}>Wallets</Text>
-      <TouchableOpacity activeOpacity={0.8} style={styles.touchViewBadge}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('OYOMoney');
+        }}
+        activeOpacity={0.8}
+        style={styles.touchViewBadge}>
         <View style={styles.badgeView}>
           <Image
             style={styles.badgeImg}
@@ -27,7 +34,12 @@ const Wallets = () => {
           <Text style={styles.textMoney}>₹300</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.8} style={styles.touchViewBadgeRupee}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('OYORupee');
+        }}
+        activeOpacity={0.8}
+        style={styles.touchViewBadgeRupee}>
         <View style={styles.badgeView}>
           <Image
             style={styles.badgeImg}

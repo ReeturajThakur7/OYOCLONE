@@ -3,7 +3,7 @@ import React from 'react';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../../HOME/HomeScreen';
-import Bookings from './Bookings';
+import Bookings from '../../BOOKING/Bookings';
 import Offers from '../../OffersScreen/Offers';
 import Invite from '../../Invite&Earn/Invite';
 

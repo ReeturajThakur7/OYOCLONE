@@ -6,14 +6,19 @@ import {
   Dimensions,
   Image,
 } from 'react-native';
-import React from 'react';
-import {color} from 'react-native-reanimated';
+import React, {useState} from 'react';
+import ModalScreen from '../../../Screens/ModalScreen';
 
 const {height, width} = Dimensions.get('screen');
 
 const FirstOyo = () => {
+  const [modal, setModal] = useState(false);
   return (
-    <TouchableOpacity style={styles.FirstContainer}>
+    <TouchableOpacity
+      style={styles.FirstContainer}
+      onPress={() => {
+        setModal(!modal);
+      }}>
       <Text style={styles.TextOffer}>
         {'Book your first OYO, starting from\n₹ 399'}
       </Text>
@@ -24,6 +29,7 @@ const FirstOyo = () => {
           source={require('../../../assests/Images/nextBlack.png')}
         />
       </View>
+      <ModalScreen modal={modal} setModal={setModal} />
     </TouchableOpacity>
   );
 };

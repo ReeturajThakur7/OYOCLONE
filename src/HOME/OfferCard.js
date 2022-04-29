@@ -33,13 +33,16 @@ const OfferCard = () => {
         backgroundColor: '#494d4e',
         // height: height / 3,
         paddingVertical: 20,
+        paddingHorizontal: 3,
         justifyContent: 'center',
+        // alignSelf: 'center',
       }}>
       <Text style={{paddingHorizontal: 7, color: 'white', fontSize: 16}}>
         Make your first booking!
       </Text>
 
       <FlatList
+        pagingEnabled
         bounces={false}
         data={Offer}
         renderItem={renderOffer}

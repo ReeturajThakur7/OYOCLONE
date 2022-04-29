@@ -6,6 +6,8 @@ import SliderBox from '../../SliderBox/SliderBox';
 import HotelData from '../../HOME/HotelData';
 import DrawerNav from '../DrawerNav/DrawerNav';
 import Notifications from '../../HOME/Notifications';
+import OYOMoney from '../../Screens/OYOMoney';
+import OYORupee from '../../Screens/OYORupee';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +22,8 @@ const StackScreen = () => {
       <Stack.Screen name="Drawer" component={DrawerNav} />
       <Stack.Screen name="HotelData" component={HotelData} />
       <Stack.Screen name="notifications" component={Notifications} />
+      <Stack.Screen name="OYOMoney" component={OYOMoney} />
+      <Stack.Screen name="OYORupee" component={OYORupee} />
     </Stack.Navigator>
   );
 };
