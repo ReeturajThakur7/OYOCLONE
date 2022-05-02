@@ -43,7 +43,12 @@ export default function Bookings({navigation}) {
             <Text style={styles.textMoney}>{'Total amount'}</Text>
             <Text style={styles.textMoney}>₹{item.price}</Text>
           </View>
-          <TouchableOpacity activeOpacity={0.7} style={styles.PayTocuh}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('BookingCompleted');
+            }}
+            activeOpacity={0.7}
+            style={styles.PayTocuh}>
             <Text style={styles.txtStyle}>Pay ₹{item.price}</Text>
           </TouchableOpacity>
         </View>
@@ -105,7 +110,7 @@ const styles = StyleSheet.create({
   txtStyle: {color: 'white', fontSize: 15, fontWeight: '600'},
   detailsView: {padding: 7, width: width / 1.6},
   htlDataView: {flexDirection: 'row', borderBottomWidth: 0.4, padding: 10},
-  MainView: {padding: 10},
+  MainView: {padding: 10, borderBottomWidth: 0.6, borderBottomColor: 'grey'},
   imgView: {
     height: height / 8,
     width: width / 3,

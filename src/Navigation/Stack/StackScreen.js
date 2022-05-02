@@ -8,6 +8,8 @@ import DrawerNav from '../DrawerNav/DrawerNav';
 import Notifications from '../../HOME/Notifications';
 import OYOMoney from '../../Screens/OYOMoney';
 import OYORupee from '../../Screens/OYORupee';
+import BookingCompleted from '../../Screens/BookingCompleted';
+import PaymentCompleted from '../../Screens/PaymentCompleted';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +26,8 @@ const StackScreen = () => {
       <Stack.Screen name="notifications" component={Notifications} />
       <Stack.Screen name="OYOMoney" component={OYOMoney} />
       <Stack.Screen name="OYORupee" component={OYORupee} />
+      <Stack.Screen name="BookingCompleted" component={BookingCompleted} />
+      <Stack.Screen name="PaymentDone" component={PaymentCompleted} />
     </Stack.Navigator>
   );
 };
